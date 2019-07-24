@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eeeeee">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/schoolNameTV"
+                style="@style/DetailViewStyle"
+                android:textColor="@color/colorGrayDark"
+                android:textSize="@dimen/font_size20" />
+
+            <TextView
+                android:id="@+id/officeHourTV"
+                style="@style/DetailViewStyle"
+                android:text="@string/office_hours" />
+
+            <TextView
+                android:id="@+id/phoneNumberTV"
+                style="@style/DetailViewStyle"
+                android:text="@string/phone" />
+
+            <TextView
+                android:id="@+id/emailTV"
+                style="@style/DetailViewStyle"
+                android:text="@string/email" />
+
+            <TextView
+                android:id="@+id/websiteTV"
+                style="@style/DetailViewStyle"
+                android:text="@string/website" />
+
+            <TextView
+                android:id="@+id/totalStudentTV"
+                style="@style/DetailViewStyle"
+                android:text="@string/total_student" />
+
+            <View
+                android:layout_marginTop="@dimen/margin10"
+                android:layout_marginLeft="@dimen/margin16"
+                android:layout_marginRight="@dimen/margin16"
+                style="@style/Divider" />
+
+            <TextView
+                android:id="@+id/satTV"
+                android:textColor="@color/colorGrayDark"
+                style="@style/DetailViewStyle"
+                android:text="@string/sat_stats"
+                android:textSize="@dimen/font_size20"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/satTakerTV"
+                style="@style/DetailViewStyle"
+                android:text="@string/sat_total"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/satAvgReadScore"
+                style="@style/DetailViewStyle"
+                android:text="@string/sat_avg_reading"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/satAvgMathScore"
+                style="@style/DetailViewStyle"
+                android:text="@string/sat_avg_math"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/satAvgWritingScore"
+                style="@style/DetailViewStyle"
+                android:text="@string/sat_avg_writing"
+                android:visibility="gone" />
+
+            <View
+                android:layout_marginTop="@dimen/margin10"
+                android:layout_marginLeft="@dimen/margin16"
+                android:layout_marginRight="@dimen/margin16"
+                style="@style/Divider" />
+
+            <TextView
+                android:id="@+id/overviewTV"
+                style="@style/DetailViewStyle"
+                android:textColor="@color/colorGrayDark"
+                android:text="@string/overview"
+                android:textSize="@dimen/font_size20"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/overviewDataTV"
+                style="@style/DetailViewStyle" />
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>
