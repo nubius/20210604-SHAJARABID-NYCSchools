@@ -74,9 +74,11 @@ public class SchoolListAdapter extends RecyclerView.Adapter<SchoolListAdapter.Sc
             if (zipCode != 0)
                 address = String.format("%s, %s", address, zipCode);
 
+            final String addressData = address;
+
             if (address.equals("")) holder.tvAddress.setVisibility(View.GONE);
             else {
-                holder.tvAddress.setText(getSpannableData(mContext.getResources().getString(R.string.address), address)); ///getspannabledata is making recyclerview recycle weired.
+                holder.tvAddress.setText(getSpannableData(mContext.getResources().getString(R.string.address), addressData)); ///getspannabledata is making recyclerview recycle weired.
                 //  holder.tvAddress.setText(String.format("%s %s", holder.tvAddress.getText().toString().trim(), address));
             }
 
@@ -100,16 +102,17 @@ public class SchoolListAdapter extends RecyclerView.Adapter<SchoolListAdapter.Sc
             }
             final double latitude = cursor.getDouble(cursor.getColumnIndex(NYCSchoolContract.NYCSchoolList.LATITUDE));
             final double logitude = cursor.getDouble(cursor.getColumnIndex(NYCSchoolContract.NYCSchoolList.LONGITUDE));
-            if (latitude != 0.0 && logitude != 0.0) {
+            if (latitude != 0.0 && logitude != 0.0 || !addressData.equals("")) {
                 holder.tvNavigateAddress.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         try {
-                            Uri geoLocation = Uri.parse("geo:" + latitude + "," + logitude);
 
+                            Uri geoLocation = !(addressData.equals("")) ? Uri.parse("geo:0,0?q=" + addressData) : Uri.parse("geo:" + latitude + "," + logitude);
+                            //Uri geoLocation = Uri.parse("geo:" + latitude + "," + logitude);
                             Intent intent = new Intent(Intent.ACTION_VIEW);
                             intent.setData(geoLocation);
-
+                            intent.setPackage("com.google.android.apps.maps");
                             if (intent.resolveActivity(mContext.getPackageManager()) != null) {
                                 mContext.startActivity(intent);
                             } else {
