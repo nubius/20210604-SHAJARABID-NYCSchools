@@ -15,3 +15,5 @@ Create a native app to provide information on NYC High schools.
 
 2. It is up to you to decide what additional information to display
 
+Given More time i would Prefer to Add 1) Search Functionality in School List, Master Detail view to handle larger views, Paginations, Job Scheduling (as the API doesn't change often) & Unit Testing
+
